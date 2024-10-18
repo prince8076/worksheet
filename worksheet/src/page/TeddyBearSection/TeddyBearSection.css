@@ -1,35 +1,131 @@
+/* General Section Styling */
 .teddy-bear-section {
     display: flex;
     align-items: center;
-    padding: 50px;
-  }
-  
-  .teddy-bear-image img {
-    width: 300px;
-    height: auto;
-  }
-  
-  .text-content {
+    justify-content: space-between;
+    padding: 70px;
+    background-color: #fffaf3; /* Light cream background */
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    position: relative;
+    overflow: hidden;
+    flex-direction: row-reverse; /* Places the image on the left and text on the right */
+}
+
+.text-content {
     max-width: 50%;
-    margin-left: 30px;
-  }
-  
-  .text-content h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-  
-  .text-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .join-us-btn {
-    padding: 10px 30px;
+    color: #343434;
+    z-index: 2;
+    text-align: left; /* Align text to the left */
+}
+
+.subheading {
+    font-size: 22px;
+    color: #f47c3c;
+    margin-bottom: 15px;
+}
+
+/* Heading split into two parts */
+.heading {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    color: #333;
+}
+
+.heading .line1 {
+    display: block;
+    font-family: 'Cursive', sans-serif; /* Make second line cursive */
+    font-size: 64px; /* Increase size of the second line */
+    margin-top: -10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.heading .line2 {
+    font-family: 'Cursive', sans-serif; /* Make second line cursive */
+    font-size: 64px; /* Increase size of the second line */
+    margin-top: -10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    color: #5a5a5a;
+}
+
+.join-us-btn {
+    padding: 18px 45px;
     background-color: #ff6600;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
-  }
-  
+    transition: background-color 0.3s ease;
+}
+
+.join-us-btn:hover {
+    background-color: #e55a00;
+}
+
+/* Teddy Bear Image Section */
+.teddy-bear-image {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.teddy-bear-image img {
+    width: 500px; /* Increased size */
+    height: 500px; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 50%; /* Circular image */
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1); /* Bigger, softer shadow */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+.orange-circle {
+    width: 200px; /* Larger circle */
+    height: 200px;
+    background-color: #f47c3c;
+    top: -40px;
+    right: 20px;
+    z-index: 0;
+}
+
+.blue-circle {
+    width: 150px; /* Larger circle */
+    height: 150px;
+    background-color: #83c5d9;
+    bottom: -60px;
+    right: 180px;
+    z-index: 0;
+}
+
+/* Additional Styling for Better Visual Impact */
+.teddy-bear-section::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background-color: #ffefe0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.1;
+}

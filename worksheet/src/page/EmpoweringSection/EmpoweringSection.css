@@ -1,43 +1,55 @@
+/* Empowering Section Styling */
 .empowering-section {
     text-align: center;
     padding: 50px;
-  }
-  
-  .portraits {
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.empowering-section h1{
+    font-family: 'Cursive', sans-serif; /* Make second line cursive */
+    font-size: 64px; /* Increase size of the second line */
+    margin-top: -10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.portraits {
     display: flex;
     justify-content: space-around;
-  }
-  
-  .portrait {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 30px; /* Add space below the portraits */
+}
+
+.portrait {
     text-align: center;
-  }
-  
-  .portrait img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .portrait h2 {
+    max-width: 200px; /* Limit width for responsiveness */
+    margin: 10px; /* Add margin between portraits */
+    transition: transform 0.3s; /* Add transition for hover effect */
+}
+
+.portrait:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.portrait img {
+    width: 200px; /* Set a fixed width */
+    height: 250px; /* Set a fixed height to ensure a consistent shape */
+    border-radius: 10px; /* Slightly round corners */
+    object-fit: cover; /* Ensure the image covers the square area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.portrait h2 {
     font-size: 24px;
-  }
-  
-  .portrait p {
+    margin: 10px 0; /* Add space around heading */
+    font-family: 'Cursive', sans-serif; /* Make second line cursive */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.portrait p {
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
-  .enroll-btn {
-    padding: 10px 20px;
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .join-us-btn {
+}
+
+.join-us-btn {
     margin-top: 30px;
     padding: 10px 30px;
     background-color: #ff6600;
@@ -45,5 +57,9 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
+    transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+.join-us-btn:hover {
+    background-color: #e65c00; /* Darker shade on hover */
+}

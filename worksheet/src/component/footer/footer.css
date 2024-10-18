@@ -1,46 +1,93 @@
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 50px 0;
-    text-align: center;
-  }
-  
-  .footer-content h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .footer-content p {
+    background-color: #D1A277; /* Background color */
+    color: #fff;
+    text-align: center; /* Center overall footer */
+    padding: 50px 20px; /* Added horizontal padding */
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+.footer-top {
+    margin-bottom: 40px;
+}
+
+.footer-top h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.footer-top .subheading {
     font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .enroll-now-btn {
-    padding: 10px 30px;
-    background-color: #ff6600;
-    color: white;
+    margin-top: 10px;
+    color: #f5f5f5;
+}
+
+.enroll-now-btn {
+    background-color: #FF6347; /* Button color */
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 30px;
-  }
-  
-  .footer-links ul {
-    list-style: none;
-  }
-  
-  .footer-links ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links ul li a {
-    color: white;
+    margin-top: 20px;
+}
+
+.footer-content {
+    text-align: left; /* Left align for footer content */
+    margin-bottom: 20px; /* Margin for spacing */
+}
+
+.left-align-line1 {
+    font-family: 'Cursive', sans-serif; /* Cursive font for the first line */
+    font-size: 48px; /* Increase size of the first line */
+    margin: 0; /* Remove default margin */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.left-align-line2 {
+    font-family: 'Cursive', sans-serif; /* Cursive font for the second line */
+    font-size: 64px; /* Increase size of the second line */
+    margin-top: -10px; /* Adjust margin for spacing */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.left-align {
+    font-size: 20px;
+    margin: 5px 0 20px 0; /* Margin for spacing */
+    color: #5a5a5a; /* Text color */
+}
+
+.footer-links {
+    display: flex; /* Flexbox for links */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center the links */
+    margin-top: 20px; /* Add space above navigation */
+}
+
+.footer-links a {
+    margin-right: 20px; /* Space between links */
+    margin-bottom: 10px; /* Space below each link */
+    color: #444;
     text-decoration: none;
-  }
-  
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.bold-text {
+    font-weight: bold; /* Bold text for specific links */
+}
+
+.footer-bottom {
+    background-color: #fff;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
