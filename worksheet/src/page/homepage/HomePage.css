@@ -1,0 +1,79 @@
+/* General styling for the homepage */
+.home-page {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    justify-content: space-between;
+    align-items: stretch; /* Make sections the same height */
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    max-width: 1200px; /* Limit max width for better readability */
+    margin: 0 auto; /* Center the homepage within the viewport */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border-radius: 10px; /* Slightly round the corners */
+}
+
+/* Left section containing the text and video */
+.left-section {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+.left-section h1 {
+    font-size: 2.5rem; /* Use responsive units */
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.2; /* Improve readability */
+}
+
+.left-section p {
+    font-size: 1.125rem; /* Slightly increase font size */
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.5; /* Increase line height for readability */
+}
+
+.enroll-now-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px; /* Increase padding */
+    font-size: 1rem; /* Use relative units */
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+.enroll-now-btn:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Video styling */
+.section-video {
+    width: 100%;
+    height: 300px; /* Set a fixed height for the video */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Right section containing the image */
+.right-section {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.section-image {
+    width: 100%;
+    height: 300px; /* Set the same height as the video */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,49 @@
+.empowering-section {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .portraits {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .portrait {
+    text-align: center;
+  }
+  
+  .portrait img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .portrait h2 {
+    font-size: 24px;
+  }
+  
+  .portrait p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .enroll-btn {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .join-us-btn {
+    margin-top: 30px;
+    padding: 10px 30px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

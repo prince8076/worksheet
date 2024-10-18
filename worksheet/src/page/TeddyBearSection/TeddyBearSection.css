@@ -1,0 +1,35 @@
+.teddy-bear-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .teddy-bear-image img {
+    width: 300px;
+    height: auto;
+  }
+  
+  .text-content {
+    max-width: 50%;
+    margin-left: 30px;
+  }
+  
+  .text-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .text-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .join-us-btn {
+    padding: 10px 30px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
