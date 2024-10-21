@@ -1,36 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PromotionalSection.css';
+import axios from 'axios';
 
-function PromotionalSection() {
+function HomePage() {
+    const [videos, setVideos] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        // Fetch videos from backend
+        const fetchVideos = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/videos');
+                setVideos(response.data);
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+            }
+        };
+        fetchVideos();
+    }, []);
+
+    const moveCarousel = (direction) => {
+        setCurrentIndex((prevIndex) => {
+            const newIndex = prevIndex + direction;
+            return (newIndex + videos.length) % videos.length; // Looping
+        });
+    };
+
     return (
-        <div className="promotional-section">
-            <div className="text-content">
-                <h3 className="subheading">Igniting Curiosity</h3>
-                <h2 className="heading">
-                    <span className="line1">Discover the</span>
-                    <span className="line2">Joy of Learning</span>
-                </h2>
-                <h3 className="subheading">Empowering Students</h3>
-
-                <p className="description">
-                    Our educational programs are designed to ignite a lifelong passion
-                    for learning in children. We believe that education should be
-                    engaging, interactive, and tailored to the unique needs and interests
-                    of each student.
+        <div className="home-page">
+            <section className="left-section">
+                <h1>Empowering Young Minds</h1>
+                <p>Education for Children</p>
+                <p>
+                    At our education platform, we believe in nurturing the intellectual
+                    and creative potential of every child. We offer a comprehensive
+                    curriculum that combines traditional learning with innovative methods.
                 </p>
-                <button className="join-us-btn">Join Us</button>
-            </div>
-
-            <div className="circular-image">
-                <img
-                    src="https://images.pexels.com/photos/21997922/pexels-photo-21997922/free-photo-of-girl-sleeping-with-a-book-in-her-hand-and-flowers-in-her-hair.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Girl sleeping with a book"
-                />
-                <div className="circle orange-circle"></div>
-                <div className="circle blue-circle"></div>
-            </div>
+                <button className="enroll-now-btn">Enroll Now</button>
+            </section>
+            <section className="right-section">
+                <h2>What Our Students Say</h2>
+                <div className="carousel">
+                    <div className="carousel-inner">
+                        {videos.map((video, index) => (
+                            <div
+                                key={index}
+                                className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
+                            >
+                                <video controls className="section-video">
+                                    <source src={`http://localhost:5000/${video.url}`} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div className="review-section">
+                                    {video.reviews.map((review, reviewIndex) => (
+                                        <div key={reviewIndex} className="review-card">
+                                            <p className="review-comment">"{review.comment}"</p>
+                                            <p className="reviewer">- {review.reviewer}</p>
+                                            <p className="review-rating">Rating: {review.rating} ★</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <button className="carousel-control left" onClick={() => moveCarousel(-1)}>
+                        &#10094;
+                    </button>
+                    <button className="carousel-control right" onClick={() => moveCarousel(1)}>
+                        &#10095;
+                    </button>
+                </div>
+            </section>
         </div>
     );
 }
 
-export default PromotionalSection;
+export default HomePage;

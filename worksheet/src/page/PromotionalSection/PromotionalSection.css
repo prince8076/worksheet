@@ -1,128 +1,144 @@
-/* General Section Styling */
-.promotional-section {
+/* General styling for the homepage */
+.home-page {
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Horizontal layout */
     justify-content: space-between;
-    padding: 70px;
-    background-color: #fffaf3; /* Light cream background */
-    font-family: 'Roboto', sans-serif; /* Modern, clean font */
-    position: relative;
-    overflow: hidden;
+    align-items: stretch;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffffff 25%, #ffcccc 75%); /* Soft pink gradient */
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 10px;
+    gap: 20px; /* Add space between left and right sections */
+    position: relative; /* Positioning for decorative elements */
+    overflow: hidden; /* Ensure children don't overflow the border */
 }
 
-/* Text Content Styling */
-.text-content {
-    max-width: 50%;
-    color: #343434;
-    z-index: 2;
-    text-align: left; /* Align text to the left */
+/* Add some playful shapes in the background */
+.home-page::before {
+    content: '';
+    position: absolute;
+    top: -100px; /* Position shape above */
+    left: -100px;
+    width: 300px; /* Width of shape */
+    height: 300px; /* Height of shape */
+    background-color: rgba(255, 192, 203, 0.5); /* Semi-transparent pink */
+    border-radius: 50%; /* Make it circular */
+    z-index: 0; /* Ensure it's behind other content */
 }
 
-.subheading {
-    font-size: 22px;
-    color: #f47c3c;
+/* Left section containing the text and video */
+.left-section {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center content vertically */
+    position: relative; /* Keep text above background shapes */
+    z-index: 1; /* Bring this content above the background */
+}
+
+.left-section h1 {
+    font-size: 2.5rem; /* Use responsive units */
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.2; /* Improve readability */
+}
+
+.left-section p {
+    font-size: 1.125rem; /* Slightly increase font size */
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.5; /* Increase line height for readability */
+}
+
+.enroll-now-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px; /* Increase padding */
+    font-size: 1rem; /* Use relative units */
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s; /* Add transition for hover effect */
+}
+
+.enroll-now-btn:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Video styling */
+.section-video {
+    width: 100%;
+    height: 300px; /* Set a fixed height for the video */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Right section containing the review video and comments */
+.right-section {
+    width: 45%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: flex-start; /* Align items at the start */
+    background: #fff; /* White background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-title {
+    font-size: 1.5rem; /* Title size for reviews */
     margin-bottom: 15px;
-}
-
-/* Heading Styling */
-.heading {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    line-height: 1.2;
     color: #333;
 }
 
-.heading .line1,
-.heading .line2 {
-    display: block;
-    font-family: 'Cursive', sans-serif; /* Make lines cursive */
-    font-size: 64px; /* Increase size */
-    margin-top: -10px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+.review-card {
+    border: 1px solid #ddd; /* Border for individual review */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px; /* Space between reviews */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Description Styling */
-.description {
-    font-size: 20px;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    color: #5a5a5a;
+.review-rating {
+    font-weight: bold; /* Highlight the rating */
+    color: #4CAF50; /* Green color for positive reviews */
 }
 
-/* Button Styling */
-.join-us-btn {
-    padding: 18px 45px;
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    border-radius: 40px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.review-comment {
+    margin-top: 5px;
+    color: #666;
 }
 
-.join-us-btn:hover {
-    background-color: #e55a00;
-}
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .home-page {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 20px;
+    }
 
-/* Circular Image Section */
-.circular-image {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 50%;
-}
+    .left-section, .right-section {
+        width: 100%; /* Take full width on smaller screens */
+    }
 
-.circular-image img {
-    width: 500px; /* Adjusted size */
-    height: 500px; /* Maintain aspect ratio */
-    object-fit: cover;
-    border-radius: 50%; /* Circular image */
-    z-index: 2;
-    position: relative;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1); /* Bigger, softer shadow */
-}
+    .left-section h1 {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
 
-/* Additional Circles */
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.2;
-}
+    .left-section p {
+        font-size: 1rem;
+    }
 
-.orange-circle {
-    width: 200px; /* Larger circle */
-    height: 200px;
-    background-color: #f47c3c;
-    top: -40px;
-    right: 20px;
-    z-index: 0;
-}
+    .enroll-now-btn {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
 
-.blue-circle {
-    width: 150px; /* Larger circle */
-    height: 150px;
-    background-color: #83c5d9;
-    bottom: -60px;
-    right: 180px;
-    z-index: 0;
-}
-
-/* Additional Styling for Better Visual Impact */
-.promotional-section::before {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background-color: #ffefe0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 0.1;
+    .section-video, .section-image {
+        height: 250px; /* Slightly smaller height for videos and images */
+    }
 }

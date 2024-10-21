@@ -1,79 +1,92 @@
-/* General styling for the homepage */
-.home-page {
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    background: linear-gradient(135deg, #ffefd5, #ffb6c1); /* Playful pastel background */
+  }
+  
+  .carousel-inner {
     display: flex;
-    flex-direction: row; /* Ensure horizontal layout */
-    justify-content: space-between;
-    align-items: stretch; /* Make sections the same height */
-    padding: 40px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    max-width: 1200px; /* Limit max width for better readability */
-    margin: 0 auto; /* Center the homepage within the viewport */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    border-radius: 10px; /* Slightly round the corners */
-}
-
-/* Left section containing the text and video */
-.left-section {
-    width: 50%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    justify-content: center; /* Center content vertically */
-}
-
-.left-section h1 {
-    font-size: 2.5rem; /* Use responsive units */
-    margin-bottom: 10px;
-    color: #333;
-    line-height: 1.2; /* Improve readability */
-}
-
-.left-section p {
-    font-size: 1.125rem; /* Slightly increase font size */
-    margin-bottom: 20px;
-    color: #666;
-    line-height: 1.5; /* Increase line height for readability */
-}
-
-.enroll-now-btn {
-    background-color: #4CAF50;
+    transition: transform 1s ease, opacity 1s ease;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    height: 400px;
+    transition: transform 1s ease, opacity 1s ease, scale 0.5s ease-in-out;
+    opacity: 0;
+    transform: scale(0.9);
+    position: relative;
+  }
+  
+  .carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Soft corners for images */
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Carousel control buttons */
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 182, 193, 0.7); /* Light pink background for buttons */
     color: white;
     border: none;
-    padding: 12px 24px; /* Increase padding */
-    font-size: 1rem; /* Use relative units */
+    font-size: 2rem;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    transition: background-color 0.3s; /* Add transition for hover effect */
-}
-
-.enroll-now-btn:hover {
-    background-color: #45a049; /* Darker shade on hover */
-}
-
-/* Video styling */
-.section-video {
-    width: 100%;
-    height: 300px; /* Set a fixed height for the video */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover; /* Maintain aspect ratio */
-}
-
-/* Right section containing the image */
-.right-section {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.section-image {
-    width: 100%;
-    height: 300px; /* Set the same height as the video */
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    z-index: 1;
+    border-radius: 50%; /* Make the controls circular */
+  }
+  
+  .carousel-control.left {
+    left: 10px;
+  }
+  
+  .carousel-control.right {
+    right: 10px;
+  }
+  
+  /* Adding playful elements like clouds */
+  .carousel::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    top: 10%;
+    left: 5%;
+    opacity: 0.7;
+    z-index: -1; /* Cloud sits behind the carousel */
+  }
+  
+  .carousel::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    background: white;
+    border-radius: 50%;
+    bottom: 10%;
+    right: 10%;
+    opacity: 0.7;
+    z-index: -1; /* Cloud sits behind the carousel */
+  }
+  

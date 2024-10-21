@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './HomePage.css';
 
-function HomePage() {
+const Carousel = ({ images, autoSlide = true, slideInterval = 3000 }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Function to go to the next image
+    const goToNext = useCallback(() => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+    }, [images.length]);
+
+    // Function to go to the previous image
+    const goToPrevious = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+    };
+
+    // Auto slide functionality
+    useEffect(() => {
+        if (autoSlide) {
+            const slideTimer = setInterval(goToNext, slideInterval);
+            return () => clearInterval(slideTimer); // Clean up the interval on component unmount
+        }
+    }, [goToNext, autoSlide, slideInterval]);
+
     return (
-        <div className="home-page">
-            <section className="left-section">
-                <h1>Empowering Young Minds</h1>
-                <p>Education for Children</p>
-                <p>
-                    At our education platform, we believe in nurturing the intellectual
-                    and creative potential of every child. We offer a comprehensive
-                    curriculum that combines traditional learning with innovative methods.
-                </p>
-                <button className="enroll-now-btn">Enroll Now</button>
-                <video controls className="section-video" autoPlay loop muted>
-                    <source
-                        src="https://videos.pexels.com/video-files/6996735/6996735-uhd_1440_2560_30fps.mp4"
-                        type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                </video>
-            </section>
-            <section className="right-section">
-                <img
-                    src="https://images.pexels.com/photos/17210083/pexels-photo-17210083/free-photo-of-girl-holding-3d-poster-with-donkeys.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Girl with colored pencils"
-                    className="section-image"
-                />
-            </section>
+        <div className="carousel">
+            <div className="carousel-inner">
+                {images.map((image, index) => (
+                    <div
+                        className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
+                        key={index}
+                        style={{
+                            display: index === currentIndex ? 'block' : 'none',
+                        }}
+                    >
+                        <img src={image} alt={`Slide ${index}`} />
+                    </div>
+                ))}
+            </div>
+            <button className="carousel-control left" onClick={goToPrevious}>
+                ❮
+            </button>
+            <button className="carousel-control right" onClick={goToNext}>
+                ❯
+            </button>
         </div>
     );
-}
+};
 
-export default HomePage;
+export default Carousel;
