@@ -1,10 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './component/header/header';
+import Footer from './component/footer/footer';
 import PromotionalSection from './page/PromotionalSection/PromotionalSection';
 import EmpoweringSection from './page/EmpoweringSection/EmpoweringSection';
 import TeddyBearSection from './page/TeddyBearSection/TeddyBearSection';
-import Footer from './component/footer/footer';
-import Carousel from './page/homepage/HomePage'; // Ensure this path is correct
+import Carousel from './page/homepage/HomePage';
+import AdminPage from './page/admin_page/AdminPanel'; // Import the admin page
 import './App.css';
 
 // Define images in App.js
@@ -16,14 +18,23 @@ const images = [
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Carousel images={images} autoSlide={true} slideInterval={3000} />
-      <PromotionalSection />
-      <EmpoweringSection />
-      <TeddyBearSection />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Carousel images={images} autoSlide={true} slideInterval={3000} />
+              <PromotionalSection />
+              <EmpoweringSection />
+              <TeddyBearSection />
+            </>
+          } />
+          <Route path="/admin" element={<AdminPage />} /> {/* Admin route */}
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,53 @@
+.admin-panel {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.product-form {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-add, .btn-update, .btn-edit, .btn-delete {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+}
+
+.btn-delete {
+    background-color: #f44336;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list table, th, td {
+    border: 1px solid #ddd;
+}
+
+.product-list th, td {
+    padding: 15px;
+    text-align: left;
+}
