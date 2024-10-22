@@ -1,0 +1,163 @@
+.home-page-with-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffffff 25%, #ffcccc 75%);
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    gap: 30px; /* Added gap for better spacing */
+    position: relative;
+}
+
+/* Carousel Styling */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffefd5, #ffb6c1);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 400px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.8s ease, opacity 0.8s ease, scale 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 182, 193, 0.8);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(255, 182, 193, 1);
+}
+
+.carousel-control.left {
+    left: 15px;
+}
+
+.carousel-control.right {
+    right: 15px;
+}
+
+/* Right Section (Video Reviews) */
+.right-section {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-video {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff9f9;
+}
+
+.review-comment {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.reviewer {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-rating {
+    color: #ff6347;
+}
+
+/* Random Product Cards */
+.product-cards {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.product-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card {
+    background: #ffefef;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #555;
+}

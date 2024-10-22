@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './component/header/header';
 import Footer from './component/footer/footer';
-import PromotionalSection from './page/PromotionalSection/PromotionalSection';
-import EmpoweringSection from './page/EmpoweringSection/EmpoweringSection';
-import TeddyBearSection from './page/TeddyBearSection/TeddyBearSection';
-import Carousel from './page/homepage/HomePage';
+// import PromotionalSection from './page/PromotionalSection/PromotionalSection';
+// import EmpoweringSection from './page/EmpoweringSection/EmpoweringSection';
+// import TeddyBearSection from './page/TeddyBearSection/TeddyBearSection';
+import HomePageWithCarousel from './page/LandingPage/HomePageWithCarousel';
+// import Carousel from './page/homepage/HomePage';
 import AdminPage from './page/admin_page/AdminPanel';
 import ProductPage from './page/Product/productlist/ProductListPage';
 import ProductDetailsPage from './page/Product/ProductDetails/ProductDetailsPage';
@@ -23,12 +24,13 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={
-            <>
-              <Carousel images={images} autoSlide={true} slideInterval={3000} />
-              <PromotionalSection />
-              <EmpoweringSection />
-              <TeddyBearSection />
-            </>
+            <HomePageWithCarousel images={images} autoSlide={true} slideInterval={3000} />
+            // <>
+            //   {/* <Carousel images={images} autoSlide={true} slideInterval={3000} />
+            //   <PromotionalSection />
+            //   <EmpoweringSection />
+            //   <TeddyBearSection /> */}
+            // </>
           } />
           <Route path="/admin" element={<AdminPage />} />
           <Route path='/product' element={<ProductPage />} />
