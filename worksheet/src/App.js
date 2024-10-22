@@ -5,7 +5,7 @@ import Footer from './component/footer/footer';
 // import PromotionalSection from './page/PromotionalSection/PromotionalSection';
 // import EmpoweringSection from './page/EmpoweringSection/EmpoweringSection';
 // import TeddyBearSection from './page/TeddyBearSection/TeddyBearSection';
-import HomePageWithCarousel from './page/LandingPage/HomePageWithCarousel';
+import HomePageWithCarousel from './component/LandingPage/HomePageWithCarousel';
 // import Carousel from './page/homepage/HomePage';
 import AdminPage from './page/admin_page/AdminPanel';
 import ProductPage from './page/Product/productlist/ProductListPage';

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './HomePageWithCarousel.css';
+import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
 
 const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3000 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [videos, setVideos] = useState([]);
     const [videoIndex, setVideoIndex] = useState(0);
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate(); // Use useNavigate for navigation
 
-    // Function to go to the next image in the carousel
     const goToNext = useCallback(() => {
         setCurrentIndex((prevIndex) => {
             if (images.length === 0) return 0;
@@ -16,7 +17,6 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         });
     }, [images]);
 
-    // Function to go to the previous image in the carousel
     const goToPrevious = useCallback(() => {
         setCurrentIndex((prevIndex) => {
             if (images.length === 0) return 0;
@@ -24,7 +24,6 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         });
     }, [images]);
 
-    // Auto-slide functionality for image carousel
     useEffect(() => {
         if (autoSlide && images.length > 0) {
             const slideTimer = setInterval(goToNext, slideInterval);
@@ -32,7 +31,6 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         }
     }, [goToNext, autoSlide, slideInterval, images.length]);
 
-    // Fetch videos from the backend
     useEffect(() => {
         const fetchVideos = async () => {
             try {
@@ -45,7 +43,6 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         fetchVideos();
     }, []);
 
-    // Fetch products from the backend
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -58,7 +55,6 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         fetchProducts();
     }, []);
 
-    // Function to move to the next/previous video in the video carousel
     const moveVideoCarousel = (direction) => {
         setVideoIndex((prevIndex) => {
             if (videos.length === 0) return 0;
@@ -66,10 +62,19 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
         });
     };
 
-    // Get 3 random products from the fetched products
     const getRandomProducts = () => {
         const shuffled = products.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 3);
+    };
+
+    const addToCart = (product) => {
+        // Implement your cart logic here (e.g., using context or Redux)
+        console.log('Product added to cart:', product);
+        // For example, you could use localStorage or a cart context to store the cart items
+    };
+
+    const navigateToProduct = (productId) => {
+        navigate(`/product/${productId}`); // Navigate to the product detail page
     };
 
     return (
@@ -141,10 +146,16 @@ const HomePageWithCarousel = ({ images = [], autoSlide = true, slideInterval = 3
                 <div className="product-card-container">
                     {getRandomProducts().map((product) => (
                         <div className="product-card" key={product.id}>
-                            <img src={product.imageUrl} alt={product.name} />
+                            <img
+                                src={product.imageUrl}
+                                alt={product.name}
+                                onClick={() => navigateToProduct(product.id)} // Redirect on image click
+                                style={{ cursor: 'pointer' }} // Change cursor to pointer
+                            />
                             <h3>{product.name}</h3>
                             <p>{product.description}</p>
                             <p>Price: ${product.price}</p>
+                            <button className="shop-now-btn" onClick={() => addToCart(product)}>Shop Now</button>
                         </div>
                     ))}
                 </div>
