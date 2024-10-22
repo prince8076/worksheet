@@ -6,10 +6,10 @@ import PromotionalSection from './page/PromotionalSection/PromotionalSection';
 import EmpoweringSection from './page/EmpoweringSection/EmpoweringSection';
 import TeddyBearSection from './page/TeddyBearSection/TeddyBearSection';
 import Carousel from './page/homepage/HomePage';
-import AdminPage from './page/admin_page/AdminPanel'; // Import the admin page
+import AdminPage from './page/admin_page/AdminPanel';
+import ProductPage from './page/Product/productlist/ProductListPage';
+import ProductDetailsPage from './page/Product/ProductDetails/ProductDetailsPage';
 import './App.css';
-
-// Define images in App.js
 const images = [
   'https://images.pexels.com/photos/1741230/pexels-photo-1741230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   'https://images.pexels.com/photos/3913426/pexels-photo-3913426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -30,7 +30,9 @@ function App() {
               <TeddyBearSection />
             </>
           } />
-          <Route path="/admin" element={<AdminPage />} /> {/* Admin route */}
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path='/product' element={<ProductPage />} />
+          <Route path="/product/:productId" element={<ProductDetailsPage />} />
         </Routes>
         <Footer />
       </div>

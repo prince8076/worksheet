@@ -8,7 +8,7 @@ function AdminPanel() {
         name: '',
         description: '',
         price: '',
-        imageUrl: ''
+        imageUrl: ''  // Add imageUrl to formData
     });
     const [imageFile, setImageFile] = useState(null);
     const [editProductId, setEditProductId] = useState(null);
@@ -42,7 +42,9 @@ function AdminPanel() {
         newFormData.append('description', formData.description);
         newFormData.append('price', formData.price);
         if (imageFile) {
-            newFormData.append('image', imageFile);  // Attach image file
+            newFormData.append('image', imageFile);  // Attach image file if provided
+        } else if (formData.imageUrl) {
+            newFormData.append('imageUrl', formData.imageUrl);  // Attach imageUrl if provided
         }
 
         try {
@@ -71,6 +73,8 @@ function AdminPanel() {
         updatedFormData.append('price', formData.price);
         if (imageFile) {
             updatedFormData.append('image', imageFile);  // Attach image file if updated
+        } else if (formData.imageUrl) {
+            updatedFormData.append('imageUrl', formData.imageUrl);  // Attach imageUrl if updated
         }
 
         try {
@@ -131,6 +135,14 @@ function AdminPanel() {
                     className="input-field"
                 />
                 <input
+                    type="text"
+                    name="imageUrl"
+                    value={formData.imageUrl}
+                    onChange={handleInputChange}
+                    placeholder="Image URL (optional)"
+                    className="input-field"
+                />
+                <input
                     type="file"
                     name="image"
                     onChange={handleImageChange}
@@ -151,6 +163,7 @@ function AdminPanel() {
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
+                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -160,6 +173,9 @@ function AdminPanel() {
                                 <td>{product.name}</td>
                                 <td>{product.description}</td>
                                 <td>${product.price}</td>
+                                <td>
+                                    {product.imageUrl && <img src={`http://localhost:5000${product.imageUrl}`} alt={product.name} width="100" />}
+                                </td>
                                 <td>
                                     <button onClick={() => handleEditProduct(product)} className="btn-edit">Edit</button>
                                     <button onClick={() => handleDeleteProduct(product._id)} className="btn-delete">Delete</button>
